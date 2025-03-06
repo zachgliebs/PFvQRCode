@@ -12,7 +12,7 @@
     <canvas id="qrcode"></canvas>
 
     <script>
-        const qrCodeUrl = window.location.origin + '/redirect.html';
+        const qrCodeUrl = window.location.origin + 'redirect.html';
         QRCode.toCanvas(document.getElementById('qrcode'), qrCodeUrl, function (error) {
             if (error) console.error(error);
             console.log('QR code generated for:', qrCodeUrl);
