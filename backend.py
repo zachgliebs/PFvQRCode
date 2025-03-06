@@ -1,9 +1,17 @@
 # app.py
-from flask import Flask, request, jsonify, redirect, render_template
-import qrcode
 import os
+from flask import Flask
 
 app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return "Hello, Render!"
+
+if __name__ == '__main__':
+    # Use the PORT environment variable provided by Render
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
 
 # Simulated database for storing the redirect URL
 redirect_data = {"current_url": "https://www.google.com/"}
