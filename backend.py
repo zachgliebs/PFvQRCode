@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "Hello, Render!"
+    return render_template('index.html')
 
 if __name__ == '__main__':
     # Use the PORT environment variable provided by Render
@@ -56,9 +56,7 @@ def update_url():
     return render_template('update.html', current_url=redirect_data["current_url"])
 
 # Main page to display the QR code
-@app.route('/')
-def index():
-    return render_template('index.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
