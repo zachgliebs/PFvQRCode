@@ -3,20 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic QR Code</title>
-    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <title>Redirecting...</title> 
+    <script>
+        redirect();
+        async function redirect() {
+            try {
+                // Fetch the current target URL from url.json yay 
+                const response = await fetch('url.txt');
+                const targetUrl = await response.text();
+
+                // Redirect to the target URL
+                if (targetUrl) {
+                    window.location.href = targetUrl;
+                } else {
+                    document.body.innerHTML = '<p>Error: No URL found in configuration.</p>';
+                }
+            } catch (error) {
+                console.error('Error fetching redirect URL:', error);
+                document.body.innerHTML = '<p>Error: Unable to fetch redirect configuration.</p>';
+            }
+        }
+
+        
+    </script>
 </head>
 <body>
-    <h1>Dynamic QR Code</h1>
-    <p>This QR code always points to a dynamic redirect page.</p>
-    <canvas id="qrcode"></canvas>
-
-    <script>
-        const qrCodeUrl = window.location.origin + 'redirect.html';
-        QRCode.toCanvas(document.getElementById('qrcode'), qrCodeUrl, function (error) {
-            if (error) console.error(error);
-            console.log('QR code generated for:', qrCodeUrl);
-        });
-    </script>
+    <p>Redirecting...</p>
 </body>
 </html>
