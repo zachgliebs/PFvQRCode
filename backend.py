@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 
 # Simulated database for storing the redirect URL
-redirect_data = {"current_url": "https://www.google.com"}
+redirect_data = {"current_url": "https://www.google.com/"}
 
 # Endpoint to generate and serve the QR code
 @app.route('/qr-code')
