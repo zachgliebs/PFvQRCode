@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Destination URL</title>
+</head>
+<body>
+    <h1>Update Destination URL</h1>
+
+    {% if message %}
+        <p style="color: green;">{{ message }}</p>
+    {% endif %}
+
+    <form method="POST" action="/update">
+        <label for="url">Current Destination:</label><br>
+        <input type="text" id="url" name="url" value="{{ current_url }}" placeholder="Enter new URL"><br><br>
+        <button type="submit">Update</button>
+    </form>
+
+    <div>
+        <a href="/">Back to QR Code Page</a>
+    </div>
+</body>
+</html>
