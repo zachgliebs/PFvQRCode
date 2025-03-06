@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic QR Code</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+</head>
+<body>
+    <h1>Dynamic QR Code</h1>
+    <p>This QR code always points to a dynamic redirect page.</p>
+    <canvas id="qrcode"></canvas>
+
+    <script>
+        const qrCodeUrl = window.location.origin + '/redirect.html';
+        QRCode.toCanvas(document.getElementById('qrcode'), qrCodeUrl, function (error) {
+            if (error) console.error(error);
+            console.log('QR code generated for:', qrCodeUrl);
+        });
+    </script>
+</body>
+</html>
